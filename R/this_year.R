@@ -1,13 +1,24 @@
 this_year <-
-function(from = Sys.Date()) {
+function(x = Sys.Date(),
+         part = c("both", "start", "end")) {
   
-  start <- floor_date( from, unit = "year" )
-  stop  <- ceiling_date( from, unit = "year" ) - days(1)
+  if ( ! "Date" %in% class(x) ) {
+    x <- as.Date(x)
+  }
+  
+  start <- floor_date( x, unit = "year" )
+  stop  <- ceiling_date( x, unit = "year" ) - days(1)
   
   out   <- list(start  = start,
                 end    = stop,
                 values = paste("This year from", from))
   class(out) <- "tpr"
   
-  return(out)
+  part <- match.arg(part)
+  
+  if ( part %in% c("start", "end") ) {
+    return(out[[part]]) 
+  } else {
+    return(out) 
+  } 
 }

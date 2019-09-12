@@ -1,14 +1,28 @@
 previous_year <-
-function(n = 1, from = Sys.Date()){
+function(x = Sys.Date(),
+         n = 1, 
+         part = c("both", "start", "end")){
   
-  start <- floor_date( from, unit = "year" ) - years(n)
-  stop  <- start + years(n) - days(1)
+  if ( ! "Date" %in% class(x) ) {
+    x <- as.Date(x)
+  }
+  
+  start <- floor_date( x, unit = "year" ) - years(n)
+  stop  <- start + years(1) - days(1)
+  
+  pular <- ifelse( n > 1, "s", "")
   
   nname <- paste0("year", pular)
   out   <- list(start  = start,
                 end    = stop,
-                values = paste(n, nname, "ago"))
+                values = paste(n, nname, "ago from", x))
   class(out) <- "tpr"
   
-  return(out) 
+  part <- match.arg(part)
+  
+  if ( part %in% c("start", "end") ) {
+    return(out[[part]]) 
+  } else {
+    return(out) 
+  } 
 }

@@ -1,8 +1,14 @@
 this_week <-
-function(from = Sys.Date(),
-                      week_start = 1) {
+function(x = Sys.Date(),
+         n = 1, 
+         part = c("both", "start", "end"),
+         week_start = 1) {
   
-  start <- floor_date( from, unit = "week", week_start)
+  if ( ! "Date" %in% class(x) ) {
+    x <- as.Date(x)
+  }
+  
+  start <- floor_date( x, unit = "week", week_start)
   stop  <- start + days(6) 
   
   out   <- list(start  = start,
@@ -10,5 +16,11 @@ function(from = Sys.Date(),
                 values = paste("This week from", from))
   class(out) <- "tpr"
   
-  return(out)
+  part <- match.arg(part)
+  
+  if ( part %in% c("start", "end") ) {
+    return(out[[part]]) 
+  } else {
+    return(out) 
+  } 
 }
