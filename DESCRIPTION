@@ -1,0 +1,15 @@
+Package: timeperiodsR
+Type: Package
+Title: Simple definition of time intervals
+Version: 0.1
+Date: 2019-09-12
+Author: Alexey Seleznev
+Maintainer: Alexey Seleznev <selesnow@gmail.com>
+Description: Simple definition of time intervals for the current, previous, and next week, month, quarter and year.
+Imports: lubridate
+URL: http://selesnow.github.io/
+License: GPL-2
+VignetteBuilder: knitr
+Suggests: knitr, rmarkdown
+Encoding: UTF-8
+Language: ru
