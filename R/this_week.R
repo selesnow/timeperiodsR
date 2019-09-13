@@ -1,6 +1,5 @@
 this_week <-
-  function(x = Sys.Date(),
-           n = 1, 
+  function(x = Sys.Date(), 
            part = c("all", "start", "end", "sequence", "length"),
            week_start = 1) {
     

@@ -1,5 +1,5 @@
 next_n_weeks <-
-  function(x = Sys.Date(),
+function(x = Sys.Date(),
            n = 1, 
            part = c("all", "start", "end", "sequence", "length"),
            week_start = 1,

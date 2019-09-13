@@ -1,6 +1,5 @@
 this_quarter <-
   function(x = Sys.Date(),
-           n = 1, 
            part = c("all", "start", "end", "sequence", "length")) {
     
     if ( ! "Date" %in% class(x) ) {

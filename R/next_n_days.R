@@ -1,5 +1,5 @@
 next_n_days <-
-  function(x = Sys.Date(),
+function(x = Sys.Date(),
            n = 1, 
            part = c("all", "start", "end", "sequence", "length"),
            include_current = F){
