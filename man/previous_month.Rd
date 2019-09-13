@@ -1,6 +1,5 @@
 \name{previous_month}
 \alias{previous_month}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Start and end of previous month
 }
@@ -8,61 +7,57 @@ Start and end of previous month
 Defines first and last date in n previous month
 }
 \usage{
-previous_month(n = 1, from = Sys.Date())
+previous_month(x = Sys.Date(),
+               n = 1, 
+               part = c("all", "start", 
+			            "end","sequence", "length"))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{n}{
-%%     ~~Describe \code{n} here~~
-}
-  \item{from}{
-%%     ~~Describe \code{from} here~~
-}
+  \item{x}{Date object}
+  \item{n}{Number of periods for offset}
+  \item{part}{Part of period you need to receive, one of "all", "start", "end","sequence", "length". See details.}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+You can get object of tpr class with all components or specify which component you need, use \code{part} for manage this option:
+\itemize{
+  \item all - get all components
+  \item start - get only first date of period
+  \item end - get only last date of period
+  \item start - get vector of all dates in period
+  \item length - get number of dates in period
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+\value{Object of tpr class}
 \author{
-%%  ~~who you are~~
+Alexey Seleznev
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+For get next other periods see \code{\link[timeperiodsR:previous_week]{previous_week()}}, \code{\link[timeperiodsR:previous_quarter]{previous_quarter()}}, \code{\link[timeperiodsR:previous_year]{previous_year()}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+## To get start of next month
+snm2 <- previous_month()
 
-## The function is currently defined as
-function (n = 1, from = Sys.Date()) 
-{
-    start <- floor_date(from, unit = "month") - months(n)
-    stop <- start + months(1) - days(1)
-    pular <- ifelse(n > 1, "s", "")
-    nname <- paste0("month", pular)
-    out <- list(start = start, end = stop, values = paste(n, 
-        nname, "ago"))
-    class(out) <- "tpr"
-    return(out)
-  }
+## To get start and end of next month
+snm1 <- previous_month(part = "start")
+
+### or
+snm2 <- previous_month()$start
+
+## identical test
+identical(snm, snm2)
+
+## To get of next month
+enm1 <- snm2 <- previous_month()$end
+enm2 <- snm2 <- previous_month(part = "end")
+
+## To get all dates from next month
+days_in_nm_vector1 <- seq(nm)
+### or
+days_in_nm_vector2 <- previous_month(part = "sequence")
+days_in_nm_vector3 <- previous_month()$sequence
+
+## Get number of days in next month
+day_nums <- previous_month(part = "length")
+previous_month()$length
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

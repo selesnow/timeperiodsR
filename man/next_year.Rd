@@ -1,6 +1,5 @@
 \name{next_year}
 \alias{next_year}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Start and end of next year
 }
@@ -8,60 +7,57 @@ Start and end of next year
 Defines first and last date in n next year
 }
 \usage{
-next_year(n = 1, from = Sys.Date())
+next_year(x = Sys.Date(),
+             n = 1, 
+             part = c("all", "start", 
+			          "end","sequence", "length"))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{n}{
-%%     ~~Describe \code{n} here~~
-}
-  \item{from}{
-%%     ~~Describe \code{from} here~~
-}
+  \item{x}{Date object}
+  \item{n}{Number of periods for offset}
+  \item{part}{Part of period you need to receive, one of "all", "start", "end","sequence", "length". See details.}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+You can get object of tpr class with all components or specify which component you need, use \code{part} for manage this option:
+\itemize{
+  \item all - get all components
+  \item start - get only first date of period
+  \item end - get only last date of period
+  \item start - get vector of all dates in period
+  \item length - get number of dates in period
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+\value{Object of tpr class}
 \author{
-%%  ~~who you are~~
+Alexey Seleznev
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+For get next other periods see \code{\link[timeperiodsR:next_month]{next_month()}}, \code{\link[timeperiodsR:next_quarter]{next_quarter()}}, \code{\link[timeperiodsR:next_week]{next_week()}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+## To get start of next month
+snm2 <- next_year()
 
-## The function is currently defined as
-function (n = 1, from = Sys.Date()) 
-{
-    start <- floor_date(from, unit = "year") + years(n)
-    stop <- start + years(n) - days(1)
-    nname <- paste0("month", pular)
-    out <- list(start = start, end = stop, values = paste(n, 
-        nname, "in advance"))
-    class(out) <- "tpr"
-    return(out)
-  }
+## To get start and end of next month
+snm1 <- next_year(part = "start")
+
+### or
+snm2 <- next_year()$start
+
+## identical test
+identical(snm, snm2)
+
+## To get of next month
+enm1 <- snm2 <- next_year()$end
+enm2 <- snm2 <- next_year(part = "end")
+
+## To get all dates from next month
+days_in_nm_vector1 <- seq(nm)
+### or
+days_in_nm_vector2 <- next_year(part = "sequence")
+days_in_nm_vector3 <- next_year()$sequence
+
+## Get number of days in next month
+day_nums <- next_year(part = "length")
+next_year()$length
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

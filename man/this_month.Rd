@@ -1,6 +1,5 @@
 \name{this_month}
 \alias{this_month}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Start and end of month
 }
@@ -8,56 +7,54 @@ Start and end of month
 Defines first and last date in month
 }
 \usage{
-this_month(from = Sys.Date())
+this_month(x = Sys.Date(),
+           part = c("all", "start", "end", "sequence", "length"))
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{from}{
-%%     ~~Describe \code{from} here~~
-}
+  \item{x}{Date object}
+  \item{part}{Part of period you need to receive, one of "all", "start", "end","sequence", "length". See details.}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+You can get object of tpr class with all components or specify which component you need, use \code{part} for manage this option:
+\itemize{
+  \item all - get all components
+  \item start - get only first date of period
+  \item end - get only last date of period
+  \item start - get vector of all dates in period
+  \item length - get number of dates in period
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+\value{Object of tpr class}
 \author{
-%%  ~~who you are~~
+Alexey Seleznev
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+For get next other periods see \code{\link[timeperiodsR:this_week]{this_week()}}, \code{\link[timeperiodsR:this_quarter]{this_quarter()}}, \code{\link[timeperiodsR:this_year]{this_year()}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+## To get start of next month
+snm2 <- this_month()
 
-## The function is currently defined as
-function (from = Sys.Date()) 
-{
-    start <- floor_date(from, unit = "year")
-    stop <- ceiling_date(from, unit = "year") - days(1)
-    out <- list(start = start, end = stop, values = paste("This year from", 
-        from))
-    class(out) <- "tpr"
-    return(out)
-  }
+## To get start and end of next month
+snm1 <- this_month(part = "start")
+
+### or
+snm2 <- this_month()$start
+
+## identical test
+identical(snm, snm2)
+
+## To get of next month
+enm1 <- snm2 <- this_month()$end
+enm2 <- snm2 <- this_month(part = "end")
+
+## To get all dates from next month
+days_in_nm_vector1 <- seq(nm)
+### or
+days_in_nm_vector2 <- this_month(part = "sequence")
+days_in_nm_vector3 <- this_month()$sequence
+
+## Get number of days in next month
+day_nums <- this_month(part = "length")
+this_month()$length
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
