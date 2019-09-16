@@ -1,87 +1,56 @@
 \name{last_n_years}
 \alias{last_n_years}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Start and end of last n years
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Defines first and last date in previous period
 }
 \usage{
-last_n_years(x = Sys.Date(), n = 1, part = c("all", "start", "end", "sequence", "length"), include_current = F)
+last_n_years(x = Sys.Date(), 
+             n = 1, 
+			 part = c("all", "start", "end", 
+			          "sequence", "length"), 
+		     include_current = F)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
-}
-  \item{n}{
-%%     ~~Describe \code{n} here~~
-}
-  \item{part}{
-%%     ~~Describe \code{part} here~~
-}
-  \item{include_current}{
-%%     ~~Describe \code{include_current} here~~
-}
+  \item{x}{Date object}
+  \item{n}{Number of periods for offset}
+  \item{part}{Part of period you need to receive, one of "all", "start", "end","sequence", "length". See details.}
+  \item{include_current}{If TRUE incliding current period in sequence}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+You can get object of tpr class with all components or specify which component you need, use \code{part} for manage this option:
+\itemize{
+  \item all - get all components
+  \item start - get only first date of period
+  \item end - get only last date of period
+  \item start - get vector of all dates in period
+  \item length - get number of dates in period
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
+\value{Object of tpr class}
 \author{
-%%  ~~who you are~~
+Alexey Seleznev
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+For get next other periods see \code{\link[timeperiodsR:last_n_months]{last_n_months()}}, \code{\link[timeperiodsR:last_n_days]{last_n_days()}}, \code{\link[timeperiodsR:last_n_weeks]{last_n_weeks()}}, \code{\link[timeperiodsR:last_n_quarters]{last_n_quarters()}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+## To get start, end and sequence of last 2 years, 
+## exclude current year
+last2years <- last_n_years(n = 2)
 
-## The function is currently defined as
-function (x = Sys.Date(), n = 1, part = c("all", "start", "end", 
-    "sequence", "length"), include_current = F) 
-{
-    if (!"Date" \%in\% class(x)) {
-        x <- as.Date(x)
-    }
-    start <- floor_date(x, unit = "year") - years(n)
-    stop <- start + years(n) - days(1) + years(ifelse(include_current, 
-        1, 0))
-    sequence <- seq.Date(from = start, to = stop, by = "day")
-    pular <- ifelse(n > 1, "s", "")
-    nname <- paste0("year", pular)
-    out <- list(start = start, end = stop, sequence = sequence, 
-        length = length(sequence), values = paste(n, nname, "ago from", 
-            x))
-    class(out) <- "tpr"
-    part <- match.arg(part)
-    if (part \%in\% c("start", "end", "sequence", "length")) {
-        return(out[[part]])
-    }
-    else {
-        return(out)
-    }
-  }
+## include current year
+last2years_2 <- last_n_years(n = 2, include_current = T)
+
+## To get vector of date sequences 
+last_n_years(n = 2, part = "sequence")
+last_n_years(n = 2)$sequence
+seq(last2years)
+
+## Get number of days of last 2 years
+day_nums <- last_n_years(n = 2, part = "length")
+last_n_years()$length
+length(last2years)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

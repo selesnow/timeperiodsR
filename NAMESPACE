@@ -1,4 +1,5 @@
 exportPattern("^[[:alpha:]]+")
 S3method("print",tpr)
 S3method("seq",tpr)
-importFrom(lubridate, ceiling_date, floor_date, days)
+S3method("length",tpr)
+importFrom(lubridate, ceiling_date, floor_date, days, weeks, years)

@@ -33,29 +33,16 @@ Alexey Seleznev
 For get next other periods see \code{\link[timeperiodsR:this_week]{this_week()}}, \code{\link[timeperiodsR:this_month]{this_month()}}, \code{\link[timeperiodsR:this_year]{this_year()}}
 }
 \examples{
-## To get start of next month
-snm2 <- this_year()
+## To get start, end and sequence of this year
+thisyear <- this_year()
 
-## To get start and end of next month
-snm1 <- this_year(part = "start")
+## To get vector of date sequences 
+this_year(part = "sequence")
+this_year()$sequence
+seq(thisyear)
 
-### or
-snm2 <- this_year()$start
-
-## identical test
-identical(snm, snm2)
-
-## To get of next month
-enm1 <- snm2 <- this_year()$end
-enm2 <- snm2 <- this_year(part = "end")
-
-## To get all dates from next month
-days_in_nm_vector1 <- seq(nm)
-### or
-days_in_nm_vector2 <- this_year(part = "sequence")
-days_in_nm_vector3 <- this_year()$sequence
-
-## Get number of days in next month
+## Get number of days of this year
 day_nums <- this_year(part = "length")
 this_year()$length
+length(thisyear)
 }

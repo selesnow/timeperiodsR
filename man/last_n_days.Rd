@@ -1,7 +1,7 @@
 \name{last_n_days}
 \alias{last_n_days}
 \title{
-Start and end of previous quarter
+Start and end of last n days
 }
 \description{
 Defines first and last date in previous period
@@ -37,29 +37,15 @@ Alexey Seleznev
 For get next other periods see \code{\link[timeperiodsR:last_n_quarters]{last_n_quarters()}}, \code{\link[timeperiodsR:last_n_months]{last_n_months()}}, \code{\link[timeperiodsR:last_n_years]{last_n_years()}}, \code{\link[timeperiodsR:last_n_weeks]{last_n_weeks()}}
 }
 \examples{
-## To get start of next month
-snm2 <- last_n_days()
+## To get start, end and sequence of last 10 days, 
+## exclude today
+last10days <- last_n_days(n = 10)
 
-## To get start and end of next month
-snm1 <- last_n_days(part = "start")
+## include today
+last10days_2 <- last_n_days(n = 10, include_current = T)
 
-### or
-snm2 <- last_n_days()$start
-
-## identical test
-identical(snm, snm2)
-
-## To get of next month
-enm1 <- snm2 <- last_n_days()$end
-enm2 <- snm2 <- last_n_days(part = "end")
-
-## To get all dates from next month
-days_in_nm_vector1 <- seq(nm)
-### or
-days_in_nm_vector2 <- last_n_days(part = "sequence")
-days_in_nm_vector3 <- last_n_days()$sequence
-
-## Get number of days in next month
-day_nums <- last_n_days(part = "length")
-last_n_days()$length
+## To get vector of date sequences 
+last_n_days(n = 10, part = "sequence")
+last_n_days(n = 10)$sequence
+seq(last10days)
 }

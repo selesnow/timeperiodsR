@@ -37,29 +37,19 @@ Alexey Seleznev
 For get next other periods see \code{\link[timeperiodsR:previous_quarter]{previous_quarter()}}, \code{\link[timeperiodsR:previous_month]{previous_month()}}, \code{\link[timeperiodsR:previous_year]{previous_year()}}
 }
 \examples{
-## To get start of next month
-snm2 <- previous_week()
+## To get start, end and sequence of previous weeks
+previousweek <- previous_week()
 
-## To get start and end of next month
-snm1 <- previous_week(part = "start")
+## Get previous week with start on Sunday
+previousweeksun <- previous_week(week_start = 7)
 
-### or
-snm2 <- previous_week()$start
+## To get vector of date sequences 
+previous_week(part = "sequence")
+previous_week()$sequence
+seq(previousweek)
 
-## identical test
-identical(snm, snm2)
-
-## To get of next month
-enm1 <- snm2 <- previous_week()$end
-enm2 <- snm2 <- previous_week(part = "end")
-
-## To get all dates from next month
-days_in_nm_vector1 <- seq(nm)
-### or
-days_in_nm_vector2 <- previous_week(part = "sequence")
-days_in_nm_vector3 <- previous_week()$sequence
-
-## Get number of days in next month
+## Get number of days of previous 2 weeks
 day_nums <- previous_week(part = "length")
 previous_week()$length
+length(previousweek)
 }
