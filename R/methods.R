@@ -12,3 +12,9 @@ seq.tpr <- function(x, by = "day") {
                   by = by)
   return(out)
 }
+
+length.tpr <- function(x) {
+  out <- length(x$sequence)
+
+  return(out)
+}

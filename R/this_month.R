@@ -6,8 +6,8 @@ function(x = Sys.Date(),
     x <- as.Date(x)
   }
   
-  start <- floor_date( x, unit = "quarter" )
-  stop  <- ceiling_date( x, unit = "quarter" ) - days(1)
+  start <- floor_date( x, unit = "month" )
+  stop  <- ceiling_date( x, unit = "month" ) - days(1)
   sequence <- seq.Date(from = start, to = stop, by = "day")
   
   out   <- list(start    = start,
