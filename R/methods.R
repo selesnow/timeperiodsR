@@ -18,3 +18,81 @@ length.tpr <- function(x) {
 
   return(out)
 }
+
+start.tpr <- function(x) {
+  out <- x$start
+  
+  return(out)
+}
+
+end.tpr <- function(x) {
+  out <- x$end
+  
+  return(out)
+}
+
+"[[<-.tpr" <- function( x, i, value) {
+  
+  if ( ! "Date" %in% class(value) ) {
+    value <- as.Date(value)
+  }
+  
+  if ( i == "start" || i == 1 ) {
+    
+    x$start    <- value
+    
+    if ( x$start > x$end ) stop("The beginning of a period cannot be later than its end")
+    
+    x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
+    x$length   <- length( x$sequence )
+    x$values   <- paste("Custom period from", x$start, "to", x$end)
+    
+  }
+  
+  if ( i == "end" || i == 2 ) {
+    
+    x$end    <- value
+    
+    if ( x$start > x$end ) stop("The beginning of a period cannot be later than its end")
+    
+    x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
+    x$length   <- length( x$sequence )
+    x$values   <- paste("Custom period from", x$start, "to", x$end)
+    
+  }
+
+  return(x)
+}
+
+"[<-.tpr" <- function( x, i, value) {
+  
+  if ( ! "Date" %in% class(value) ) {
+    value <- as.Date(value)
+  }
+  
+  if ( i == "start" || i == 1 ) {
+    
+    x$start    <- value
+    
+    if ( x$start > x$end ) stop("The beginning of a period cannot be later than its end")
+    
+    x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
+    x$length   <- length( x$sequence )
+    x$values   <- paste("Custom period from", x$start, "to", x$end)
+    
+  }
+  
+  if ( i == "end" || i == 2 ) {
+    
+    x$end      <- value
+    
+    if ( x$start > x$end ) stop("The beginning of a period cannot be later than its end")
+    
+    x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
+    x$length   <- length( x$sequence )
+    x$values   <- paste("Custom period from", x$start, "to", x$end)
+    
+  }
+  
+  return(x)
+}
