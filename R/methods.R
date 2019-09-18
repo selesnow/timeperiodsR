@@ -1,12 +1,17 @@
 print.tpr <-
-function(x) {
+function(x, ...) {
   cat("\n", 
       "Time period:", x$values, "\n",
       "Date start:", format(as.Date(x$start), "%e %B of %Y, %A"), "\n",
       "Date end:   ", format(as.Date(x$end), "%e %B of %Y, %A"))
 }
 
-seq.tpr <- function(x, by = "day") {
+seq.tpr <- function(x, ...) {
+  
+  if ( missing(...) ) {
+    by = "day"
+  }
+  
   out <- seq.Date(from = x$start,
                   to = x$end, 
                   by = by)
@@ -19,13 +24,13 @@ length.tpr <- function(x) {
   return(out)
 }
 
-start.tpr <- function(x) {
+start.tpr <- function(x, ...) {
   out <- x$start
   
   return(out)
 }
 
-end.tpr <- function(x) {
+end.tpr <- function(x, ...) {
   out <- x$end
   
   return(out)

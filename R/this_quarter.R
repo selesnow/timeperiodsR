@@ -14,7 +14,7 @@ this_quarter <-
                   end    = stop,
                   sequence = sequence,
                   length   =  length(sequence),
-                  values = paste("This quarter from", from))
+                  values = paste("This quarter from", x))
     
   class(out) <- "tpr"
   

@@ -15,7 +15,7 @@ this_week <-
                 end    = stop,
                 sequence = sequence,
                 length   =  length(sequence),
-                values = paste("This week from", from))
+                values = paste("This week from", x))
   
   class(out) <- "tpr"
   

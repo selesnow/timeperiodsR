@@ -9,7 +9,7 @@ function(x = Sys.Date(),
     }
     
     start <- floor_date( x, unit = "month" ) - months(n)
-    stop  <- start + months(n) - days(1) + months(ifelse( include_current, 1, 0))
+    stop  <- start + months(n + ifelse( include_current, 1, 0)) - days(1)
     sequence <- seq.Date(from = start, to = stop, by = "day")
     
     pular <- ifelse( n > 1, "s", "")

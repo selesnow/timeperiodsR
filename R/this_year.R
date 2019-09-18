@@ -14,7 +14,7 @@ this_year <-
                 end    = stop,
                 sequence = sequence,
                 length   =  length(sequence),
-                values = paste("This year from", from))
+                values = paste("This year from", x))
   
   class(out) <- "tpr"
   
