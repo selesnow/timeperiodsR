@@ -98,7 +98,7 @@ length(last2weeks)
 ```
 
 ## Виньетки
-Наиболее подробное описание по работе с пакетом `timeperiodsR` вы можете найти в виньетке, `vignette("tpr_intro", package = "timeperiodsR")`
+Наиболее подробное описание по работе с пакетом `timeperiodsR` вы можете найти в [виньетке](https://selesnow.github.io/timeperiodsR/inst/doc/tpr_intro.html), `vignette("tpr_intro", package = "timeperiodsR")`
 
 ### Ссылки
 1. [Полная, официальная документация по работе с пакетом timeperiodsR](https://selesnow.github.io/timeperiodsR/).
