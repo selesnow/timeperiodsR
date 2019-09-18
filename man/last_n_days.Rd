@@ -42,7 +42,7 @@ For get next other periods see \code{\link[timeperiodsR:last_n_quarters]{last_n_
 last10days <- last_n_days(n = 10)
 
 ## include today
-last10days_2 <- last_n_days(n = 10, include_current = T)
+last10days_2 <- last_n_days(n = 10, include_current = TRUE)
 
 ## To get vector of date sequences 
 last_n_days(n = 10, part = "sequence")

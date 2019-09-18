@@ -43,7 +43,7 @@ For get next other periods see \code{\link[timeperiodsR:last_n_months]{last_n_mo
 next2weeks <- next_n_weeks(n = 2)
 
 ## include current week
-next2weeks_2 <- next_n_weeks(n = 2, include_current = T)
+next2weeks_2 <- next_n_weeks(n = 2, include_current = TRUE)
 
 ## Get next 2 week with start on Sunday
 nextWeek <- next_n_weeks(n = 2, week_start = 7)

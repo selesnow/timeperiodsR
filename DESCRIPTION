@@ -11,7 +11,7 @@ Authors@R:
              email  = "selesnow@gmail.com"))
 Author: Alexey Seleznev [aut, cre]
 Maintainer: Alexey Seleznev <selesnow@gmail.com>
-Description: Simple definition of time intervals for the current, previous, and next week, month, quarter and year
+Description: Simple definition of time intervals for the current, previous, and next week, month, quarter and year.
 BugReports: https://github.com/selesnow/timeperiodsR/issues
 URL: https://selesnow.github.io/timeperiodsR, https://t.me/R4marketing
 Imports: lubridate

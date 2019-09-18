@@ -42,7 +42,7 @@ For get next other periods see \code{\link[timeperiodsR:next_n_quarters]{next_n_
 next2month <- next_n_months(n = 2)
 
 ## include current month
-next2month_2 <- next_n_months(n = 2, include_current = T)
+next2month_2 <- next_n_months(n = 2, include_current = TRUE)
 
 ## To get vector of date sequences 
 next_n_months(n = 2, part = "sequence")

@@ -42,7 +42,7 @@ For get next other periods see \code{\link[timeperiodsR:next_n_months]{next_n_mo
 next2years <- next_n_years(n = 2)
 
 ## include current year
-next2years_2 <- next_n_years(n = 2, include_current = T)
+next2years_2 <- next_n_years(n = 2, include_current = TRUE)
 
 ## To get vector of date sequences 
 next_n_years(n = 2, part = "sequence")
