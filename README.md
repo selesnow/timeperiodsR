@@ -1,18 +1,4 @@
----
-output: github_document
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-timeperiodsR - Упрощённое создание временных периодов, и извлечение их элементов в R <a href='https:/selesnow.github.io/timeperiodsR'><img src='https://raw.githubusercontent.com/selesnow/timeperiodsR/master/inst/timeperiodsR_logo.png' align="right" height="139" /></a>
+**timeperiodsR** - Упрощённое создание временных периодов, и извлечение их элементов в R <a href='https:/selesnow.github.io/timeperiodsR'><img src='https://raw.githubusercontent.com/selesnow/timeperiodsR/master/inst/timeperiodsR_logo.png' align="right" height="139" /></a>
 
 # Цель пакета timeperiodsR
 Зачастую при создании скриптов которые в последвии будут запускаться по рассписанию нам необходимо определить период, как правило таким периодом может быть прошлая неделя, прошлый месяц, какое то количество прошлых дней. Пакет `timeperiodsR` предоставляет вам набор функций которые автоматически будут вычислять такой период от какой либо базовой даты.
