@@ -12,7 +12,7 @@
 
 <meta name="author" content="Alexey Seleznev" />
 
-<meta name="date" content="2019-09-27" />
+<meta name="date" content="2019-09-30" />
 
 <title>Intro to timeperiodsR (RUS)</title>
 
@@ -303,7 +303,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Intro to timeperiodsR (RUS)</h1>
 <h4 class="author">Alexey Seleznev</h4>
-<h4 class="date">2019-09-27</h4>
+<h4 class="date">2019-09-30</h4>
 
 
 
@@ -344,7 +344,13 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </div>
 <div id="section-1" class="section level2">
 <h2>Компоненты получаемых объектов</h2>
-<p>Любая из функций пакета возвращает объект класса <code>tpr</code> состоящий из следующих компонентов: * start - начальную дату; * end - конечную дату; * sequence - последовательность дат; * length - количество дней входящих в период;</p>
+<p>Любая из функций пакета возвращает объект класса <code>tpr</code> состоящий из следующих компонентов:</p>
+<ul>
+<li>start - начальную дату;</li>
+<li>end - конечную дату;</li>
+<li>sequence - последовательность дат;</li>
+<li>length - количество дней входящих в период;</li>
+</ul>
 </div>
 <div id="section-2" class="section level2">
 <h2>Аргументы</h2>
@@ -410,26 +416,26 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>После чего у вас появится объект <strong>last2weeks</strong> класса <code>tpr</code>. Из него вы легко можете получить начальную или конечную дату периода, а так же всю последовательность дат которая вошла в этот период, или количество дней вошедших в период.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># начальная дата</span></a>
 <a class="sourceLine" id="cb4-2" title="2">last2weeks<span class="op">$</span>start</a></code></pre></div>
-<pre><code>## [1] &quot;2019-09-09&quot;</code></pre>
+<pre><code>## [1] &quot;2019-09-16&quot;</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">## или</span></a>
 <a class="sourceLine" id="cb6-2" title="2"><span class="kw">start</span>(last2weeks)</a></code></pre></div>
-<pre><code>## [1] &quot;2019-09-09&quot;</code></pre>
+<pre><code>## [1] &quot;2019-09-16&quot;</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># конечная дата</span></a>
 <a class="sourceLine" id="cb8-2" title="2">last2weeks<span class="op">$</span>end</a></code></pre></div>
-<pre><code>## [1] &quot;2019-09-22&quot;</code></pre>
+<pre><code>## [1] &quot;2019-09-29&quot;</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co">## или</span></a>
 <a class="sourceLine" id="cb10-2" title="2"><span class="kw">end</span>(last2weeks)</a></code></pre></div>
-<pre><code>## [1] &quot;2019-09-22&quot;</code></pre>
+<pre><code>## [1] &quot;2019-09-29&quot;</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># последовательность дат</span></a>
 <a class="sourceLine" id="cb12-2" title="2">last2weeks<span class="op">$</span>sequence</a></code></pre></div>
-<pre><code>##  [1] &quot;2019-09-09&quot; &quot;2019-09-10&quot; &quot;2019-09-11&quot; &quot;2019-09-12&quot; &quot;2019-09-13&quot;
-##  [6] &quot;2019-09-14&quot; &quot;2019-09-15&quot; &quot;2019-09-16&quot; &quot;2019-09-17&quot; &quot;2019-09-18&quot;
-## [11] &quot;2019-09-19&quot; &quot;2019-09-20&quot; &quot;2019-09-21&quot; &quot;2019-09-22&quot;</code></pre>
+<pre><code>##  [1] &quot;2019-09-16&quot; &quot;2019-09-17&quot; &quot;2019-09-18&quot; &quot;2019-09-19&quot; &quot;2019-09-20&quot;
+##  [6] &quot;2019-09-21&quot; &quot;2019-09-22&quot; &quot;2019-09-23&quot; &quot;2019-09-24&quot; &quot;2019-09-25&quot;
+## [11] &quot;2019-09-26&quot; &quot;2019-09-27&quot; &quot;2019-09-28&quot; &quot;2019-09-29&quot;</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co">## или</span></a>
 <a class="sourceLine" id="cb14-2" title="2"><span class="kw">seq</span>(last2weeks)</a></code></pre></div>
-<pre><code>##  [1] &quot;2019-09-09&quot; &quot;2019-09-10&quot; &quot;2019-09-11&quot; &quot;2019-09-12&quot; &quot;2019-09-13&quot;
-##  [6] &quot;2019-09-14&quot; &quot;2019-09-15&quot; &quot;2019-09-16&quot; &quot;2019-09-17&quot; &quot;2019-09-18&quot;
-## [11] &quot;2019-09-19&quot; &quot;2019-09-20&quot; &quot;2019-09-21&quot; &quot;2019-09-22&quot;</code></pre>
+<pre><code>##  [1] &quot;2019-09-16&quot; &quot;2019-09-17&quot; &quot;2019-09-18&quot; &quot;2019-09-19&quot; &quot;2019-09-20&quot;
+##  [6] &quot;2019-09-21&quot; &quot;2019-09-22&quot; &quot;2019-09-23&quot; &quot;2019-09-24&quot; &quot;2019-09-25&quot;
+## [11] &quot;2019-09-26&quot; &quot;2019-09-27&quot; &quot;2019-09-28&quot; &quot;2019-09-29&quot;</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># количество дней вошедших в период</span></a>
 <a class="sourceLine" id="cb16-2" title="2">last2weeks<span class="op">$</span>length</a></code></pre></div>
 <pre><code>## [1] 14</code></pre>
@@ -473,7 +479,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Если вам необходимо получить первую и последнюю дату текущего месяца, и всю последовательность дат которые в него входят то используйте следующий код:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">this_month</span>()</a></code></pre></div>
 <pre><code>## 
-##  Time period: This month from 2019-09-27 
+##  Time period: This month from 2019-09-30 
 ##  Date start:  1 Сентябрь of 2019, воскресенье 
 ##  Date end:    30 Сентябрь of 2019, понедельник</code></pre>
 <div class="figure">
