@@ -108,6 +108,5 @@ length(last2weeks)
 
 ### Бейджи
 [![Rdoc](http://www.rdocumentation.org/badges/version/timeperiodsR)](http://www.rdocumentation.org/packages/timeperiodsR)
-[![Rdoc](http://www.rdocumentation.org/badges/version/timeperiodsR)](http://www.rdocumentation.org/packages/timeperiodsR)
 [![rpackages.io rank](http://www.rpackages.io/badge/timeperiodsR.svg)](http://www.rpackages.io/package/timeperiodsR)
 [![](https://cranlogs.r-pkg.org/badges/timeperiodsR)](https://cran.r-project.org/package=timeperiodsR)
