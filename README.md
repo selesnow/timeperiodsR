@@ -1,19 +1,21 @@
-**timeperiodsR** - Упрощённое создание временных периодов, и извлечение их элементов в R <a href='https:/selesnow.github.io/timeperiodsR'><img src='https://raw.githubusercontent.com/selesnow/timeperiodsR/master/inst/timeperiodsR_logo.png' align="right" height="139" /></a>
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+timeperiodsR - Упрощённое создание временных периодов, и извлечение их элементов в R <a href='https:/selesnow.github.io/timeperiodsR'><img src='https://raw.githubusercontent.com/selesnow/timeperiodsR/master/inst/timeperiodsR_logo.png' align="right" height="139" /></a>
 
 # Цель пакета timeperiodsR
 Зачастую при создании скриптов которые в последвии будут запускаться по рассписанию нам необходимо определить период, как правило таким периодом может быть прошлая неделя, прошлый месяц, какое то количество прошлых дней. Пакет `timeperiodsR` предоставляет вам набор функций которые автоматически будут вычислять такой период от какой либо базовой даты.
-
-# Установка
-На данный момент установка пакета возможна из CRAN или GitHub.
-
-```r
-install.packages("timeperiodsR")
-```
-
-```r
-# install.packages("devtools")
-devtools::install_github("selesnow/timeperiodsR")
-```
 
 # Функции пакета timeperiodsR
 Текущая версия пакета состоит из 24 функций, по названию каждой из функций можно определить какой временной интервал она возвращает.
@@ -102,7 +104,7 @@ length(last2weeks)
 ```
 
 ## Виньетки
-Наиболее подробное описание по работе с пакетом `timeperiodsR` вы можете найти в [виньетке](https://selesnow.github.io/timeperiodsR/inst/doc/tpr_intro.html), `vignette("tpr_intro", package = "timeperiodsR")`
+Наиболее подробное описание по работе с пакетом `timeperiodsR` вы можете найти в виньетке, `vignette("tpr_intro", package = "timeperiodsR")`
 
 ### Ссылки
 1. [Полная, официальная документация по работе с пакетом timeperiodsR](https://selesnow.github.io/timeperiodsR/).
