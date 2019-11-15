@@ -8,15 +8,7 @@ this_year <-
     
     start <- floor_date( x, unit = "year" )
     stop  <- ceiling_date( x, unit = "year" ) - days(1)
-  sequence <- seq.Date(from = start, to = stop, by = "day")
-  
-  out   <- list(start  = start,
-                end    = stop,
-                sequence = sequence,
-                length   =  length(sequence),
-                values = paste("This year from", x))
-  
-  class(out) <- "tpr"
+    out   <- custom_period(start, stop)
   
   part <- match.arg(part)
   

@@ -11,17 +11,7 @@ function(x = Sys.Date(),
     
     start <- floor_date( x, unit = "week", week_start ) + weeks(ifelse( isTRUE(include_current), 0, 1)) 
     stop  <- ceiling_date( x, unit = "week", week_start ) + days(7 * n) 
-    sequence <- seq.Date(from = start, to = stop, by = "day")
-    
-    pular <- ifelse( n > 1, "s", "")
-    
-    nname <- paste0("week", pular)
-    out   <- list(start  = start,
-                  end    = stop,
-                  sequence = sequence,
-                  length   =  length(sequence),
-                  values = paste(n, nname, "in advance from", x))
-    class(out) <- "tpr"
+    out   <- custom_period(start, stop)
     
     part <- match.arg(part)
     

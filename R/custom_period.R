@@ -15,8 +15,7 @@ custom_period <- function( start,
     out   <- list(start    = start,
                   end      = end,                
                   sequence = sequence,
-                  length   =  length(sequence),
-                  values = paste("Custom period from", start, "to", end))
+                  length   = length(sequence))
     
     class(out) <- "tpr"
     

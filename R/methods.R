@@ -1,9 +1,17 @@
 print.tpr <-
 function(x, ...) {
+  
+  if ( length(x$sequence) == 1 ) {
+    
   cat("\n", 
-      "Time period:", x$values, "\n",
-      "Date start:", format(as.Date(x$start), "%e %B of %Y, %A"), "\n",
-      "Date end:   ", format(as.Date(x$end), "%e %B of %Y, %A"))
+      "Time period:", format(as.Date(x$start), "%e %B of %Y, %A"))
+  } else {
+  
+  cat("\n", 
+      "Time period: from", format(as.Date(x$start), "%e %B of %Y, %A"), 
+      "to", format(as.Date(x$end), "%e %B of %Y, %A"))
+  }
+
 }
 
 seq.tpr <- function(x, ...) {

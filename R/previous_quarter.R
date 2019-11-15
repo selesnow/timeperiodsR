@@ -9,18 +9,7 @@ function(x = Sys.Date(),
   
   start <- floor_date( x, unit = "quarter" ) - months(3 * n) 
   stop  <- start + months(3) - days(1)
-  sequence <- seq.Date(from = start, to = stop, by = "day")
-  
-  pular <- ifelse( n > 1, "s", "")
-  
-  nname <- paste0("quarter", pular)
-  out   <- list(start  = start,
-                end    = stop,
-                sequence = sequence,
-                length   =  length(sequence),
-                values = paste(n, nname, "ago from", x))
-  
-  class(out) <- "tpr"
+  out   <- custom_period(start, stop)
   
   part <- match.arg(part)
   

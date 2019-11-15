@@ -11,18 +11,8 @@ function(x = Sys.Date(),
     
     start <- floor_date( x, unit = "week", week_start ) - weeks(n) 
     stop  <- start + days(7 * n) - days(1) + weeks(ifelse( isTRUE(include_current), 1, 0))
-    sequence <- seq.Date(from = start, to = stop, by = "day")
     
-    pular <- ifelse( n > 1, "s", "")
-    
-  nname <- paste0("week", pular)
-  out   <- list(start  = start,
-                end    = stop,
-                sequence = sequence,
-                length   =  length(sequence),
-                values = paste(n, nname, "ago from", x))
-  
-  class(out) <- "tpr"
+    out   <- custom_period(start, stop)
   
   
   part <- match.arg(part)

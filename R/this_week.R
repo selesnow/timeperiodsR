@@ -9,15 +9,7 @@ this_week <-
     
   start <- floor_date( x, unit = "week", week_start)
   stop  <- start + days(6) 
-  sequence <- seq.Date(from = start, to = stop, by = "day")
-  
-  out   <- list(start  = start,
-                end    = stop,
-                sequence = sequence,
-                length   =  length(sequence),
-                values = paste("This week from", x))
-  
-  class(out) <- "tpr"
+  out   <- custom_period(start, stop)
   
   part <- match.arg(part)
   

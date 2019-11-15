@@ -8,15 +8,7 @@ this_quarter <-
     
     start <- floor_date( x, unit = "quarter" )
     stop  <- ceiling_date( x, unit = "quarter" ) - days(1)
-    sequence <- seq.Date(from = start, to = stop, by = "day")
-    
-    out   <- list(start  = start,
-                  end    = stop,
-                  sequence = sequence,
-                  length   =  length(sequence),
-                  values = paste("This quarter from", x))
-    
-  class(out) <- "tpr"
+    out   <- custom_period(start, stop)
   
   part <- match.arg(part)
   
