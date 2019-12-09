@@ -4,12 +4,12 @@ function(x, ...) {
   if ( length(x$sequence) == 1 ) {
     
   cat("\n", 
-      "Time period:", format(as.Date(x$start), "%e %B of %Y, %A"))
+      "Time period:", format(as.Date(x$start), "%Y-%m-%d (%A)"))
   } else {
   
   cat("\n", 
-      "Time period: from", format(as.Date(x$start), "%e %B of %Y, %A"), 
-      "to", format(as.Date(x$end), "%e %B of %Y, %A"))
+      "Time period:", format(as.Date(x$start), "%Y-%m-%d (%A)"), 
+      "-", format(as.Date(x$end), "%Y-%m-%d (%A)"))
   }
 
 }
@@ -108,4 +108,23 @@ end.tpr <- function(x, ...) {
   }
   
   return(x)
+}
+
+as_timeperiod <- function(x) {
+  UseMethod("as_timeperiod")
+}
+
+as_timeperiod.default <- function(x) {
+  
+  x <- as.Date(x)
+  
+  out <- custom_period(min(x), max(x))
+  return(out)
+}
+
+as_timeperiod.Date <- function(x) {
+  
+  out <- custom_period(min(x), max(x))
+  return(out)
+  
 }
