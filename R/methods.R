@@ -1,3 +1,5 @@
+# ###############################
+# main
 print.tpr <-
 function(x, ...) {
   
@@ -44,6 +46,20 @@ end.tpr <- function(x, ...) {
   return(out)
 }
 
+weekdays.tpr <- function(x, ...) {
+  out <- x$weekdays
+  
+  return(out)
+}
+
+weekends.tpr <- function(x, ...) {
+  out <- x$weekends
+  
+  return(out)
+}
+
+# ###############################
+# set
 "[[<-.tpr" <- function( x, i, value) {
   
   if ( ! "Date" %in% class(value) ) {
@@ -58,7 +74,6 @@ end.tpr <- function(x, ...) {
     
     x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
     x$length   <- length( x$sequence )
-    x$values   <- paste("Custom period from", x$start, "to", x$end)
     
   }
   
@@ -70,7 +85,6 @@ end.tpr <- function(x, ...) {
     
     x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
     x$length   <- length( x$sequence )
-    x$values   <- paste("Custom period from", x$start, "to", x$end)
     
   }
 
@@ -91,7 +105,6 @@ end.tpr <- function(x, ...) {
     
     x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
     x$length   <- length( x$sequence )
-    x$values   <- paste("Custom period from", x$start, "to", x$end)
     
   }
   
@@ -103,13 +116,15 @@ end.tpr <- function(x, ...) {
     
     x$sequence <- seq.Date(from = x$start, to = x$end, by = "day")              
     x$length   <- length( x$sequence )
-    x$values   <- paste("Custom period from", x$start, "to", x$end)
     
   }
   
   return(x)
 }
 
+# ###############################
+# methods
+#
 as_timeperiod <- function(x) {
   UseMethod("as_timeperiod")
 }
@@ -127,4 +142,85 @@ as_timeperiod.Date <- function(x) {
   out <- custom_period(min(x), max(x))
   return(out)
   
+}
+
+# ###############################
+# 
+weekends <- function(x) {
+  UseMethod("weekends")
+}
+
+weekends.default <- function(x) {
+  x <- as.Date()
+  out <- x[ format(x, "%w") %in% c("0", "6") ]
+  return(out)
+}  
+
+weekends.tpr <- function(x) {
+  out <- x$weekends
+  return(out)
+}  
+
+# ###############################
+first_weekday <- function(x) {
+  UseMethod("first_weekday")
+}
+
+first_weekday.default <- function(x) {
+  x <- as.Date()
+  out <- x[ format(x, "%w") %in% c("0", "6") ]
+  return(min(out))
+}  
+
+first_weekday.tpr <- function(x) {
+  out <- x$first_weekday
+  return(min(out))
+}
+
+# ###############################
+last_weekday <- function(x) {
+  UseMethod("last_weekday")
+}
+
+last_weekday.default <- function(x) {
+  x <- as.Date()
+  out <- x[ format(x, "%w") %in% c("0", "6") ]
+  return(max(out))
+}  
+
+last_weekday.tpr <- function(x) {
+  out <- x$last_weekday
+  return(min(out))
+}
+
+# ###############################
+first_weekend <- function(x) {
+  UseMethod("first_weekend")
+}
+
+first_weekend.default <- function(x) {
+  x <- as.Date()
+  out <- x[ format(x, "%w") %in% c("0", "6") ]
+  return(min(out))
+}  
+
+first_weekend.tpr <- function(x) {
+  out <- x$first_weekend
+  return(min(out))
+}
+
+# ###############################
+last_weekend <- function(x) {
+  UseMethod("last_weekend")
+}
+
+last_weekend.default <- function(x) {
+  x <- as.Date()
+  out <- x[ ! format(x, "%w") %in% c("0", "6") ]
+  return(max(out))
+}  
+
+last_weekend.tpr <- function(x) {
+  out <- x$last_weekend
+  return(min(out))
 }
