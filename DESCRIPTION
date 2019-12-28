@@ -1,8 +1,8 @@
 Package: timeperiodsR
 Type: Package
 Title: Simple Definition Of Time Intervals
-Version: 0.4.0
-Date: 2019-12-27
+Version: 0.5.0
+Date: 2019-12-28
 License: GPL-2
 Authors@R: 
     c(person(given  = "Alexey",
@@ -14,7 +14,8 @@ Maintainer: Alexey Seleznev <selesnow@gmail.com>
 Description: Simple definition of time intervals for the current, previous, and next week, month, quarter and year.
 BugReports: https://github.com/selesnow/timeperiodsR/issues
 URL: https://selesnow.github.io/timeperiodsR, https://t.me/R4marketing
-Imports: lubridate, zoo
+Imports: lubridate
+Suggests: httr
 URL: http://selesnow.github.io/
 License: GPL-2
 VignetteBuilder: knitr
