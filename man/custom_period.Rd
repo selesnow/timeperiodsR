@@ -7,15 +7,18 @@ Custopm period
 Create tpr object between start and end dates
 }
 \usage{
-custom_period(start, 
-              end,
-              part = c("all", "start", "end", 
-			           "sequence", "length"))
+custom_period( start, 
+               end,
+               part = c("all", "start", "end", 
+                        "sequence", "workdays", 
+                        "weekends", "first_workday", 
+                        "last_workday", "first_weekend",
+                        "last_weekend", "length")) 
 }
 \arguments{
   \item{start}{Start date in YYYY-MM-DD format}
   \item{end}{End date in YYYY-MM-DD format}
-  \item{part}{Part of period you need to receive, one of "all", "start", "end","sequence", "length". See details.}
+  \item{part}{Part of period you need to receive, one of "all", "start", "end","sequence", "length", "workdays", "weekends", "first_workday", "last_workday", "first_weekend", "last_weekend", "length". See details.}
 }
 \details{
 You can get object of tpr class with all components or specify which component you need, use \code{part} for manage this option:
