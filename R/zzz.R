@@ -29,3 +29,27 @@ timeperiodsRWelcomeMessage <- function(){
          "---------------------\n"
   )
 }
+
+
+.onLoad <- function(libname, pkgname) {
+  
+  # read variables
+  official_day_offs         <- Sys.getenv("TPR_DAY_OFFS")
+  official_day_offs_country <- Sys.getenv("TPR_COUNTRY")
+  official_day_offs_pre     <- Sys.getenv("TPR_PRE")
+  
+  # check variables
+  if ( official_day_offs == "" )         official_day_offs <- FALSE
+  if ( official_day_offs_country == "" ) official_day_offs_country <- "ru"
+  if ( official_day_offs_pre == "" )     official_day_offs_pre <- 0
+  
+  op <- options()
+  op.timeperiodsR <- list(timeperiodsR.official_day_offs         = as.logical(official_day_offs),
+                          timeperiodsR.official_day_offs_country = official_day_offs_country,
+                          timeperiodsR.official_day_offs_pre     = official_day_offs_pre)
+  
+  toset <- !(names(op.timeperiodsR) %in% names(op))
+  if (any(toset)) options(op.timeperiodsR[toset])
+  
+  invisible()
+}
