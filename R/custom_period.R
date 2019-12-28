@@ -34,7 +34,7 @@ custom_period <- function( start,
                   last_weekend    = max(weekends),
                   length          = length(sequence),
                   workdays_length = length(workdays),
-                  weekend_length  = length(weekends))
+                  weekends_length  = length(weekends))
     
     if ( getOption( "timeperiodsR.official_day_offs" ) ) {
       
