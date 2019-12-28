@@ -46,17 +46,6 @@ end.tpr <- function(x, ...) {
   return(out)
 }
 
-weekdays.tpr <- function(x, ...) {
-  out <- x$weekdays
-  
-  return(out)
-}
-
-weekends.tpr <- function(x, ...) {
-  out <- x$weekends
-  
-  return(out)
-}
 
 # ###############################
 # set
@@ -146,6 +135,24 @@ as_timeperiod.Date <- function(x) {
 
 # ###############################
 # 
+workdays <- function(x) {
+  UseMethod("workdays")
+}
+
+workdays.default <- function(x, ...) {
+  x <- as.Date()
+  out <- x[ ! format(x, "%w") %in% c("0", "6") ]
+  return(out)
+}
+
+workdays.tpr <- function(x, ...) {
+  out <- x$workdays
+  
+  return(out)
+}
+
+# ###############################
+# 
 weekends <- function(x) {
   UseMethod("weekends")
 }
@@ -162,34 +169,34 @@ weekends.tpr <- function(x) {
 }  
 
 # ###############################
-first_weekday <- function(x) {
-  UseMethod("first_weekday")
+first_workday <- function(x) {
+  UseMethod("first_workday")
 }
 
-first_weekday.default <- function(x) {
+first_workday.default <- function(x) {
   x <- as.Date()
   out <- x[ format(x, "%w") %in% c("0", "6") ]
   return(min(out))
 }  
 
-first_weekday.tpr <- function(x) {
-  out <- x$first_weekday
+first_workday.tpr <- function(x) {
+  out <- x$first_workday
   return(min(out))
 }
 
 # ###############################
-last_weekday <- function(x) {
-  UseMethod("last_weekday")
+last_workday <- function(x) {
+  UseMethod("last_workday")
 }
 
-last_weekday.default <- function(x) {
+last_workday.default <- function(x) {
   x <- as.Date()
   out <- x[ format(x, "%w") %in% c("0", "6") ]
   return(max(out))
 }  
 
-last_weekday.tpr <- function(x) {
-  out <- x$last_weekday
+last_workday.tpr <- function(x) {
+  out <- x$last_workday
   return(min(out))
 }
 
@@ -223,4 +230,39 @@ last_weekend.default <- function(x) {
 last_weekend.tpr <- function(x) {
   out <- x$last_weekend
   return(min(out))
+}
+
+# ###############################
+workdays_length <- function(x) {
+  UseMethod("workdays_length")
+}
+
+workdays_length.default <- function(x) {
+  x <- as_timeperiod()
+  x <- workdays(x)
+  
+  return(x$workdays_length)
+}  
+
+workdays_length.tpr <- function(x) {
+  out <- x$workdays_length
+  return(out)
+}
+
+
+# ###############################
+weekends_length <- function(x) {
+  UseMethod("weekends_length")
+}
+
+weekends_length.default <- function(x) {
+  x <- as_timeperiod()
+  x <- weekends(x)
+  
+  return(x$weekend_length)
+}  
+
+weekends_length.tpr <- function(x) {
+  out <- x$weekend_length
+  return(out)
 }
