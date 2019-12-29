@@ -16,18 +16,37 @@ function(x, ...) {
 
 }
 
-seq.tpr <- function(x, 
-                    what = c("sequence", 
-                             "workdays",
-                             "weekends",
-                             "official_day_offs",
-                             "official_workdays")) {
+seq.tpr <- function(x, ...) {
   
-  what <- match.arg(what)
+  if ( missing(...) ) {
+    by <- "day"
+    what <- c("sequence", 
+              "workdays",
+              "weekends",
+              "official_day_offs",
+              "official_workdays")
+  }
   
-  out <- x[[what]]
+  what <- match.arg(what, c("sequence", 
+                            "workdays",
+                            "weekends",
+                            "official_day_offs",
+                            "official_workdays"))
+  
+  if ( what == "sequence" ) {
+    
+    out <- seq.Date(from = x$start,
+                    to = x$end, 
+                    by = by)
+  
+  } else {
+    
+    out <- x[[what]]
+    
+  }
   
   return(out)
+  
 }
 
 length.tpr <- function(x) {
