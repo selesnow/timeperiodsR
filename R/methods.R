@@ -16,15 +16,17 @@ function(x, ...) {
 
 }
 
-seq.tpr <- function(x, ...) {
+seq.tpr <- function(x, 
+                    what = c("sequence", 
+                             "workdays",
+                             "weekends",
+                             "official_day_offs",
+                             "official_workdays")) {
   
-  if ( missing(...) ) {
-    by = "day"
-  }
+  what <- match.arg(what)
   
-  out <- seq.Date(from = x$start,
-                  to = x$end, 
-                  by = by)
+  out <- x[[what]]
+  
   return(out)
 }
 
