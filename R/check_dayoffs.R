@@ -1,9 +1,10 @@
-check_dayoffs <- function(date  = NULL,
-                          year  = NULL,
-                          month = NULL,
-                          day   = NULL,
-                          cc    = getOption("timeperiodsR.official_day_offs_country"),
-                          pre   = getOption("timeperiodsR.official_day_offs_pre")) {
+check_dayoffs <- function(date    = NULL,
+                          year    = NULL,
+                          month   = NULL,
+                          day     = NULL,
+                          cc      = getOption("timeperiodsR.official_day_offs_country"),
+                          pre     = getOption("timeperiodsR.official_day_offs_pre"),
+                          include_custom_day_offs = TRUE) {
   
   # check httr
     if ( !requireNamespace("httr", quietly = TRUE) ) { 
@@ -31,10 +32,20 @@ check_dayoffs <- function(date  = NULL,
       date <- as.character(seq(date))
       
     }
-      
+    
+    custom_day_offs_cha <- as.character(getOption("timeperiodsR.custom_day_offs"))
+    
     out <-
       sapply(date, 
              function(x) {
+              
+              # check for custom day offs
+              if ( x %in% custom_day_offs_cha & isTRUE( include_custom_day_offs ) ) {
+                
+                return("3")
+                
+              }
+                
               if ( ! is.null(x) ) {
                 if ( ! class(x) == "Date" ) x <- as.Date(x)
                 year  <- format(x, "%Y")
@@ -55,6 +66,7 @@ check_dayoffs <- function(date  = NULL,
               return(temp_out)
              }, USE.NAMES = TRUE
      )
+    
   } else {
     
     ans <- httr::GET("https://isdayoff.ru/api/getdata", 

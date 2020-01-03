@@ -24,14 +24,16 @@ seq.tpr <- function(x, ...) {
               "workdays",
               "weekends",
               "official_day_offs",
-              "official_workdays")
+              "official_workdays",
+              "custom_day_offs")
   }
   
   what <- match.arg(what, c("sequence", 
                             "workdays",
                             "weekends",
                             "official_day_offs",
-                            "official_workdays"))
+                            "official_workdays",
+                            "custom_day_offs"))
   
   if ( what == "sequence" ) {
     
