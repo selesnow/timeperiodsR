@@ -7,9 +7,9 @@ Start and end of week
 Defines first and last date in week
 }
 \usage{
-this_week(x = Sys.Date(), part = c("all", "start", "end",
-                 "sequence", "length"), 
-		  week_start = 1)
+this_week(x = Sys.Date(), 
+          part = getOption("timeperiodsR.parts"), 
+		      week_start = 1)
 }
 \arguments{
   \item{x}{Date object}

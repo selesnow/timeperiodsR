@@ -8,8 +8,7 @@ Defines first and last date in year
 }
 \usage{
 this_year(x = Sys.Date(),
-          part = c("all", "start", "end", 
-		           "sequence", "length"))
+          part = getOption("timeperiodsR.parts"))
 }
 \arguments{
   \item{x}{Date object}

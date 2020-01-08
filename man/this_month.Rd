@@ -8,7 +8,7 @@ Defines first and last date in month
 }
 \usage{
 this_month(x = Sys.Date(),
-           part = c("all", "start", "end", "sequence", "length"))
+           part = getOption("timeperiodsR.parts"))
 }
 \arguments{
   \item{x}{Date object}

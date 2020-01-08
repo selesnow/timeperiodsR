@@ -9,8 +9,7 @@ Defines first and last date in previous period
 \usage{
 last_n_quarters(x = Sys.Date(), 
                 n = 1, 
-                part = c("all", "start", "end", 
-                         "sequence", "length"), 
+                part = getOption("timeperiodsR.parts"), 
                 include_current = F)
 }
 \arguments{

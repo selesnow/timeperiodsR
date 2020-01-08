@@ -9,8 +9,7 @@ Defines first and last date in next month and all dates in month
 \usage{
 next_month(x = Sys.Date(),
            n = 1, 
-           part = c("all", "start", "end",
-		            "sequence", "length"))
+           part = getOption("timeperiodsR.parts"))
 }
 \arguments{
   \item{x}{Date object}

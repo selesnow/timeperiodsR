@@ -9,9 +9,8 @@ Defines first and last date in next period
 \usage{
 next_n_months(x = Sys.Date(), 
               n = 1, 
-			  part = c("all", "start", "end", 
-			           "sequence", "length"), 
-	          include_current = F)
+			        part = getOption("timeperiodsR.parts"), 
+	            include_current = F)
 }
 \arguments{
   \item{x}{Date object}

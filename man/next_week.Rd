@@ -9,8 +9,7 @@ Defines first and next date in n next week
 \usage{
 next_week(x = Sys.Date(),
           n = 1, 
-          part = c("all", "start", 
-		           "end","sequence", "length"),
+          part = getOption("timeperiodsR.parts"),
           week_start = 1)
 }
 \arguments{

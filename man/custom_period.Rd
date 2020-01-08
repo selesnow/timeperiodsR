@@ -9,11 +9,7 @@ Create tpr object between start and end dates
 \usage{
 custom_period( start, 
                end,
-               part = c("all", "start", "end", 
-                        "sequence", "workdays", 
-                        "weekends", "first_workday", 
-                        "last_workday", "first_weekend",
-                        "last_weekend", "length")) 
+               part = getOption("timeperiodsR.parts")) 
 }
 \arguments{
   \item{start}{Start date in YYYY-MM-DD format}
