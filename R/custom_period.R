@@ -1,13 +1,6 @@
 custom_period <- function( start, 
                            end,
-                           part = c("all", "start", "end", 
-                                    "sequence", "workdays", 
-                                    "weekends", "first_workday", 
-                                    "last_workday", "first_weekend",
-                                    "last_weekend", "length",
-                                    "dayoffs_marks", "official_day_offs",
-                                    "official_workdays", "official_first_workday",
-                                    "official_last_workday")) {
+                           part = getOption("timeperiodsR.parts")) {
   
     if ( ! "Date" %in% class(start) ) {
       start <- as.Date(start)
@@ -36,7 +29,7 @@ custom_period <- function( start,
                   workdays_length = length(workdays),
                   weekends_length = length(weekends))
     
-    if ( getOption( "timeperiodsR.official_day_offs" ) | ! is.null(getOption("timeperiodsR.custom_day_offs")) ) {
+    if ( getOption( "timeperiodsR.official_day_offs" ) | ! is.null(getOption( "timeperiodsR.custom_day_offs" )) ) {
       
         out$dayoffs_marks     <- check_dayoffs(date = as.character(sequence))
         
@@ -50,29 +43,11 @@ custom_period <- function( start,
     
     class(out) <- "tpr"
     
-    part <- match.arg(part)
+    part <- match.arg(part, getOption("timeperiodsR.parts"))
     
-    if ( part %in% c("start", 
-                     "end", 
-                     "sequence", 
-                     "workdays", 
-                     "weekends", 
-                     "first_workday", 
-                     "last_workday", 
-                     "first_weekend",
-                     "last_weekend", 
-                     "length",
-                     "dayoffs_marks", 
-                     "official_day_offs",
-                     "official_workdays", 
-                     "official_first_workday",
-                     "official_last_workday") ) {
-      
-      return(out[[part]]) 
-      
-    } else {
-      
+    if ( part == "all" ) {
       return(out) 
-      
+    } else {
+      return(out[[part]]) 
     } 
 }

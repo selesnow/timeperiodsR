@@ -163,7 +163,7 @@ workdays <- function(x) {
 }
 
 workdays.default <- function(x, ...) {
-  x <- as.Date()
+  x <- as.Date(x)
   out <- x[ ! format(x, "%w") %in% c("0", "6") ]
   return(out)
 }
@@ -181,7 +181,7 @@ weekends <- function(x) {
 }
 
 weekends.default <- function(x) {
-  x <- as.Date()
+  x <- as.Date(x)
   out <- x[ format(x, "%w") %in% c("0", "6") ]
   return(out)
 }  
@@ -197,7 +197,7 @@ first_workday <- function(x) {
 }
 
 first_workday.default <- function(x) {
-  x <- as.Date()
+  x <- as.Date(x)
   out <- x[ format(x, "%w") %in% c("0", "6") ]
   return(min(out))
 }  
@@ -213,7 +213,7 @@ last_workday <- function(x) {
 }
 
 last_workday.default <- function(x) {
-  x <- as.Date()
+  x <- as.Date(x)
   out <- x[ format(x, "%w") %in% c("0", "6") ]
   return(max(out))
 }  
@@ -229,7 +229,7 @@ first_weekend <- function(x) {
 }
 
 first_weekend.default <- function(x) {
-  x <- as.Date()
+  x <- as.Date(x)
   out <- x[ format(x, "%w") %in% c("0", "6") ]
   return(min(out))
 }  
@@ -261,7 +261,7 @@ workdays_length <- function(x) {
 }
 
 workdays_length.default <- function(x) {
-  x <- as_timeperiod()
+  x <- as_timeperiod(x)
   x <- workdays(x)
   
   return(x$workdays_length)
@@ -279,13 +279,30 @@ weekends_length <- function(x) {
 }
 
 weekends_length.default <- function(x) {
-  x <- as_timeperiod()
-  x <- weekends(x)
+  x <- as_timeperiod(x)
+  out <- weekends(x)
   
-  return(x$weekend_length)
+  return(out)
 }  
 
 weekends_length.tpr <- function(x) {
-  out <- x$weekend_length
+  out <- x$weekends_length
+  return(out)
+}
+
+# ###############################
+custom_day_offs <- function(x) {
+  UseMethod("custom_day_offs")
+}
+
+custom_day_offs.default <- function(x) {
+  #x <- as.Date(x)
+  dayoffs_marks <- check_dayoffs(date = as.character(x))
+  out <- x[dayoffs_marks == "3"]
+  return(out)
+}  
+
+custom_day_offs.tpr <- function(x) {
+  out <- x$custom_day_offs
   return(out)
 }

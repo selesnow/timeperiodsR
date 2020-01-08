@@ -1,7 +1,7 @@
 next_week <-
 function(x = Sys.Date(),
          n = 1, 
-         part = c("all", "start", "end", "sequence", "length"),
+         part = getOption("timeperiodsR.parts"),
          week_start = 1) {
   
   if ( ! "Date" %in% class(x) ) {
@@ -12,11 +12,11 @@ function(x = Sys.Date(),
   stop  <- start + days(6)
   out   <- custom_period(start, stop)
   
-  part <- match.arg(part)
+  part <- match.arg(part, getOption("timeperiodsR.parts"))
   
-  if ( part %in% c("start", "end", "sequence", "length") ) {
-    return(out[[part]]) 
-  } else {
+  if ( part == "all" ) {
     return(out) 
-  }
+  } else {
+    return(out[[part]]) 
+  } 
 }

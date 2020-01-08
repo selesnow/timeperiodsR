@@ -53,7 +53,24 @@ timeperiodsRWelcomeMessage <- function(){
   op.timeperiodsR <- list(timeperiodsR.official_day_offs         = as.logical(official_day_offs),
                           timeperiodsR.official_day_offs_country = official_day_offs_country,
                           timeperiodsR.official_day_offs_pre     = official_day_offs_pre,
-                          timeperiodsR.custom_day_offs           = custom_day_offs)
+                          timeperiodsR.custom_day_offs           = custom_day_offs,
+                          timeperiodsR.parts                     = c("all", 
+                                                                     "start", 
+                                                                     "end", 
+                                                                     "sequence", 
+                                                                     "workdays", 
+                                                                     "weekends", 
+                                                                     "first_workday", 
+                                                                     "last_workday", 
+                                                                     "first_weekend",
+                                                                     "last_weekend", 
+                                                                     "length",
+                                                                     "dayoffs_marks", 
+                                                                     "official_day_offs",
+                                                                     "official_workdays", 
+                                                                     "official_first_workday",
+                                                                     "official_last_workday", 
+                                                                     "custom_day_offs"))
   
   toset <- !(names(op.timeperiodsR) %in% names(op))
   if (any(toset)) options(op.timeperiodsR[toset])

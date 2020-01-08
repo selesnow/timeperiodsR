@@ -1,7 +1,7 @@
 next_n_weeks <-
 function(x = Sys.Date(),
            n = 1, 
-           part = c("all", "start", "end", "sequence", "length"),
+           part = getOption("timeperiodsR.parts"),
            week_start = 1,
            include_current = F) {
     
@@ -13,11 +13,11 @@ function(x = Sys.Date(),
     stop  <- ceiling_date( x, unit = "week", week_start ) + days(7 * n) 
     out   <- custom_period(start, stop)
     
-    part <- match.arg(part)
+    part <- match.arg(part, getOption("timeperiodsR.parts"))
     
-    if ( part %in% c("start", "end", "sequence", "length") ) {
-      return(out[[part]]) 
-    } else {
+    if ( part == "all" ) {
       return(out) 
-    }
+    } else {
+      return(out[[part]]) 
+    } 
   }

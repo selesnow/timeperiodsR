@@ -1,6 +1,6 @@
 this_month <-
 function(x = Sys.Date(),
-         part = c("all", "start", "end", "sequence", "length")) {
+         part = getOption("timeperiodsR.parts")) {
   
   if ( ! "Date" %in% class(x) ) {
     x <- as.Date(x)
@@ -10,12 +10,12 @@ function(x = Sys.Date(),
   stop  <- ceiling_date( x, unit = "month" ) - days(1)
   out   <- custom_period(start, stop)
   
-  part <- match.arg(part)
+  part <- match.arg(part, getOption("timeperiodsR.parts"))
   
-  if ( part %in% c("start", "end", "sequence", "length") ) {
-    return(out[[part]]) 
-  } else {
+  if ( part == "all" ) {
     return(out) 
+  } else {
+    return(out[[part]]) 
   } 
 }
 
