@@ -1,8 +1,7 @@
 Package: timeperiodsR
 Type: Package
 Title: Simple Definition Of Time Intervals
-Version: 0.6.1
-Date: 2020-01-08
+Version: 0.6.2
 License: GPL-2
 Authors@R: 
     c(person(given  = "Alexey",
@@ -15,9 +14,7 @@ Description: Simple definition of time intervals for the current, previous, and 
 BugReports: https://github.com/selesnow/timeperiodsR/issues
 URL: https://selesnow.github.io/timeperiodsR, https://t.me/R4marketing, https://www.youtube.com/playlist?list=PLD2LDq8edf4qed2KVKfXmKdh0OQcdj9gw
 Imports: lubridate
-Suggests: httr
-License: GPL-2
 VignetteBuilder: knitr
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, httr
 Encoding: UTF-8
 Language: ru
