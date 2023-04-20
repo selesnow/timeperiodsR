@@ -1,4 +1,11 @@
-## ---- echo=TRUE---------------------------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
+knitr::opts_chunk$set(
+  eval=TRUE,
+  collapse = TRUE,
+  comment = "#>"
+)
+
+## ---- echo=TRUE, eval=TRUE----------------------------------------------------
 library(timeperiodsR)
 
 # получаем прошлый месяц
@@ -11,15 +18,15 @@ end   <- period$end   # последний день прошлого месяц�
 ## ----eval=FALSE---------------------------------------------------------------
 #  install.packages("httr")
 
-## ----eval=FALSE---------------------------------------------------------------
-#  options("timeperiodsR.official_day_offs" = TRUE,
-#          "timeperiodsR.official_day_offs_country" = "ua",
-#          "timeperiodsR.official_day_offs_pre" = 1)
+## ----eval=TRUE----------------------------------------------------------------
+options("timeperiodsR.official_day_offs" = TRUE,
+        "timeperiodsR.official_day_offs_country" = "ua",
+        "timeperiodsR.official_day_offs_pre" = 1)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ---- echo=TRUE, eval=TRUE----------------------------------------------------
 last2weeks <- last_n_weeks(n = 2)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ---- echo=TRUE, eval=TRUE----------------------------------------------------
 # начальная дата
 last2weeks$start
 ## или
@@ -79,6 +86,7 @@ workdays_length(last2weeks)
 last2weeks$weekends_length
 ## или
 weekends_length(last2weeks)
+
 
 ## ---- echo=TRUE---------------------------------------------------------------
 library(timeperiodsR)

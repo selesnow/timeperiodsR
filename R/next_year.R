@@ -3,7 +3,7 @@ function(x = Sys.Date(),
          n = 1, 
          part = getOption("timeperiodsR.parts")){
   
-  if ( ! "Date" %in% class(x) ) {
+  if ( ! inherits(x, "Date") ) {
     x <- as.Date(x)
   }
   

@@ -29,7 +29,7 @@ check_dayoffs <- function(
   
   if ( ! is.null(date) ) {
   
-    if ( "tpr" %in% class(date) ) {
+    if ( inherits(date, "tpr") ) {
       
       date <- as.character(seq(date))
       
@@ -49,7 +49,7 @@ check_dayoffs <- function(
               }
                 
               if ( ! is.null(x) ) {
-                if ( ! class(x) == "Date" ) x <- as.Date(x)
+                if ( ! inherits(x, "Date") ) x <- as.Date(x)
                 year  <- format(x, "%Y")
                 month <- format(x, "%m")
                 day   <- format(x, "%d")

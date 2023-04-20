@@ -1,7 +1,7 @@
 Package: timeperiodsR
 Type: Package
 Title: Simple Definition Of Time Intervals
-Version: 0.6.2
+Version: 0.7.0
 License: GPL-2
 Authors@R: 
     c(person(given  = "Alexey",

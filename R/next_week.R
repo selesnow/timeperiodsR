@@ -4,7 +4,7 @@ function(x = Sys.Date(),
          part = getOption("timeperiodsR.parts"),
          week_start = 1) {
   
-  if ( ! "Date" %in% class(x) ) {
+  if ( ! inherits(x, "Date") ) {
     x <- as.Date(x)
   }
   

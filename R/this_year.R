@@ -2,7 +2,7 @@ this_year <-
   function(x = Sys.Date(),
            part = getOption("timeperiodsR.parts")) {
     
-    if ( ! "Date" %in% class(x) ) {
+    if ( ! inherits(x, "Date") ) {
       x <- as.Date(x)
     }
     

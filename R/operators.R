@@ -1,10 +1,10 @@
 "%.in%" <- function(x, y) {
   
-  if ( class(y) != "tpr" ) {
+  if ( ! inherits(y, "tpr") ) {
     stop("right value must be object of tpr class")
   }
   
-  if ( class(x) == "tpr" ) {
+  if ( inherits(x, "tpr") ) {
     x <- x$sequence
   } else {
     # convert to date
@@ -16,11 +16,11 @@
 
 "%left_out%" <- function(x, y) {
   
-  if ( class(x) == "tpr" ) {
+  if ( inherits(x, "tpr") ) {
     x <- x$sequence
   }
   
-  if ( class(y) == "tpr" ) {
+  if ( inherits(y, "tpr") ) {
     y <- y$sequence
   }
   
@@ -31,11 +31,11 @@
 
 "%left_in%" <- function(x, y) {
   
-  if ( class(x) == "tpr" ) {
+  if ( inherits(x, "tpr") ) {
     x <- x$sequence
   }
   
-  if ( class(y) == "tpr" ) {
+  if ( inherits(y, "tpr") ) {
     y <- y$sequence
   }
   
@@ -45,11 +45,11 @@
 
 "%right_out%" <- function(x, y) {
   
-  if ( class(x) == "tpr" ) {
+  if ( inherits(x, "tpr") ) {
     x <- x$sequence
   }
   
-  if ( class(y) == "tpr" ) {
+  if ( inherits(y, "tpr") ) {
     y <- y$sequence
   }
   
@@ -59,11 +59,11 @@
 
 "%right_in%" <- function(x, y) {
   
-  if ( class(x) == "tpr" ) {
+  if ( inherits(x, "tpr") ) {
     x <- x$sequence
   }
   
-  if ( class(y) == "tpr" ) {
+  if ( inherits(y, "tpr") ) {
     y <- y$sequence
   }
   

@@ -4,7 +4,7 @@ function(x = Sys.Date(),
            part = getOption("timeperiodsR.parts"),
            include_current = F) {
     
-    if ( ! "Date" %in% class(x) ) {
+    if ( ! inherits(x, "Date") ) {
       x <- as.Date(x)
     }
     

@@ -5,7 +5,7 @@ function(x = Sys.Date(),
            week_start = 1,
            include_current = F){
     
-  if ( ! "Date" %in% class(x) ) {
+  if ( ! inherits(x, "Date") ) {
     x <- as.Date(x)
   }
     
