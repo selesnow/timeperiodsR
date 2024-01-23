@@ -1,4 +1,4 @@
-**timeperiodsR** - Упрощённое создание временных периодов, и извлечение их элементов в R <a href='https:/selesnow.github.io/timeperiodsR'><img src='https://raw.githubusercontent.com/selesnow/timeperiodsR/master/inst/timeperiodsR_logo.png' align="right" height="139" /></a>
+**timeperiodsR** - Упрощённое создание временных периодов, и извлечение их элементов в R <a href='https://selesnow.github.io/timeperiodsR/'><img src='https://raw.githubusercontent.com/selesnow/timeperiodsR/master/inst/timeperiodsR_logo.png' align="right" height="139" /></a>
 
 # Цель пакета timeperiodsR
 Зачастую при создании скриптов которые в последвии будут запускаться по рассписанию нам необходимо определить период. Как правило таким периодом может быть прошлая неделя, прошлый месяц или какое то количество прошлых дней. Пакет `timeperiodsR` предоставляет вам набор функций которые автоматически будут вычислять такой период относительно какой либо базовой даты.
@@ -125,16 +125,15 @@ length(last2weeks)
 3. Баг репорты, предложения по доработке и улучшению функционала timeperiodsR оставлять [тут](https://github.com/selesnow/timeperiodsR/issues). 
 4. [Список релизов](https://github.com/selesnow/timeperiodsR/releases).
 5. [Телеграмм канал R4marketing](https://t.me/R4marketing).
-6. [Группа в Вконтакте](https://vk.com/data_club).
 
 ### Автор пакета
-Алексей Селезнёв, Head of analytics dept. at [Netpeak](https://netpeak.net)
+Алексей Селезнёв, Head of analytics dept. at [Netpeak](https://netpeak.net/en/gb/)
 <Br>email: selesnow@gmail.com
 <Br>skype: selesnow
-<Br>facebook: [facebook.com/selesnow](https://facebook.com/selesnow)
+<Br>facebook: [facebook.com/selesnow](https://www.facebook.com/selesnow)
 <Br>blog: [alexeyseleznev.wordpress.com](https://alexeyseleznev.wordpress.com/)
 
 ### Бейджи
-[![Rdoc](http://www.rdocumentation.org/badges/version/timeperiodsR)](http://www.rdocumentation.org/packages/timeperiodsR)
+[![Rdoc](http://www.rdocumentation.org/badges/version/timeperiodsR)](https://www.rdocumentation.org/packages/timeperiodsR)
 [![rpackages.io rank](http://www.rpackages.io/badge/timeperiodsR.svg)](http://www.rpackages.io/package/timeperiodsR)
 [![](https://cranlogs.r-pkg.org/badges/timeperiodsR)](https://cran.r-project.org/package=timeperiodsR)

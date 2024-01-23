@@ -5,3 +5,4 @@
 ^cran-comments\.md$
 ^_config\.yml
 ^index\.md
+^CRAN-SUBMISSION$

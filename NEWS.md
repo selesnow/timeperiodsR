@@ -1,3 +1,6 @@
+# timeperiodsR 0.7.1
+* Исправил ссылки в README и DESCRIPTION
+
 # timeperiodsR 0.7.0
 * Незначительное испрвление ошибок
 * Вместо `class(y) == "tpr"` теперь везде используется функция `inherits()`.
