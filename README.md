@@ -127,7 +127,7 @@ length(last2weeks)
 5. [Телеграмм канал R4marketing](https://t.me/R4marketing).
 
 ### Автор пакета
-Алексей Селезнёв, Head of analytics dept. at [Netpeak](https://netpeak.net/en/gb/)
+Алексей Селезнёв, Head of analytics dept. at [Netpeak](https://netpeak.co.uk/)
 <Br>email: selesnow@gmail.com
 <Br>skype: selesnow
 <Br>facebook: [facebook.com/selesnow](https://www.facebook.com/selesnow)
