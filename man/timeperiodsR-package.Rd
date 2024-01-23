@@ -13,7 +13,6 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{timeperiodsR}
 \packageIndices{timeperiodsR}
-~~ An overview of how to use the package, including the most important functions ~~
 }
 \author{
 \packageAuthor{timeperiodsR}
