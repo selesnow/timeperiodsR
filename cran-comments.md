@@ -2,4 +2,4 @@
 
 0 errors | 0 warnings | 1 note
 
-* Fix link in readme file.
+* Fix documentation and DESCRIPTION

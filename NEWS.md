@@ -1,3 +1,6 @@
+# timeperiodsR 0.7.4
+* Исправление спецификации языка в DESCRIPTION согласно требованиям CRAN.
+
 # timeperiodsR 0.7.3
 * Исправлена ссылка в README файле.
 
