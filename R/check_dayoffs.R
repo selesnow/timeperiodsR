@@ -55,7 +55,7 @@ check_dayoffs <- function(
                 day   <- format(x, "%d")
               }
               
-              ans <- httr::GET("https://isdayoff.ru/api/getdata", 
+              ans <- httr::GET("https://www.isdayoff.ru/api/getdata", 
                          query = list(
                            year=year,
                            month=month,
@@ -84,7 +84,7 @@ check_dayoffs <- function(
     
   } else {
     
-    ans <- httr::GET("https://isdayoff.ru/api/getdata", 
+    ans <- httr::GET("https://www.isdayoff.ru/api/getdata", 
                      query = list(
                        year=year,
                        month=month,

@@ -65,7 +65,7 @@ Alexey Seleznev
 }
 
 \references{
-\href{https://isdayoff.ru/}{Official documentation for isDayOff API}
+\href{https://www.isdayoff.ru/}{Official documentation for isDayOff API}
 }
 
 \examples{
