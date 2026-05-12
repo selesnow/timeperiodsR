@@ -1,3 +1,6 @@
+# timeperiodsR 0.7.6
+* В коде обращения к API ссылки изменены с `https://www.` на `https://isdayoff`.
+
 # timeperiodsR 0.7.5
 * Исправлены недействительные ссылки: `https://isdayoff.ru/` заменено на `https://www.isdayoff.ru/` (устранена ошибка 301 Moved Permanently согласно требованиям CRAN).
 
